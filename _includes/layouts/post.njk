@@ -36,25 +36,20 @@ comments: true
         </p>
     {% endif %}
     {% if comments %}
-        <div id="disqus_thread"></div>
-        <script>
-
-            /**
-             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-            var disqus_config = function () {
-                this.page.url = "{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "{{ title }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            (function () { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://hbbj.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
-                Disqus.</a></noscript>
+        <div class="comments">
+            {# Add the any comments we have stashed for this page #}
+            {% include "components/comments.njk" -%}
+            {# Unless we have disabled comments for this page, add a comments form #}
+            {% if commentsClosed != true %}
+                {% include "components/comment-form.njk" -%}
+            {% else %}
+                <div class="footnote">
+                    <p>
+                        comments on this page are now closed. Perhaps express your opinions about this <a href="https://twitter.com/intent/tweet?text=I%20need%20to%20tell%20the%20world%20about%20this!&url={{ init.rootURL }}{{ page.url }}">on twitter</a> instead?
+                    </p>
+                </div>
+            {% endif %}
+        </div>
     {% endif %}
 
 </article>
