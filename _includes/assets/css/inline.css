@@ -1,7 +1,7 @@
 :root {
-	--turkey: #FFF0EB;
-	--white: white;
-	--blue: blue;
+	--background: #081a3d;
+	--yellow: #d8b361;
+	--white: #fdfaf7;
 }
 
 *, *:before, *:after {
@@ -17,9 +17,9 @@ body {
 
 body {
 	display: grid;
-	height: 100vh;
 	grid-template-rows: auto 1fr auto;
-	background-color: var(--turkey);
+	background-color: var(--background);
+	color: var(--white);
 }
 
 main {
@@ -34,7 +34,7 @@ code {
 
 a[href],
 a[href]:visited {
-	color: var(--blue);
+	color: var(--yellow);
 }
 
 a[href]:not(:hover) {
@@ -78,10 +78,10 @@ ul {
 	list-style: none;
 }
 
-/* Header Logo (style as h2) */
 header > em {
-	display: block;
-	font-size: 2em;
+    font-family: 'Shrikhand', cursive;
+    display: block;
+	font-size: 2.4em;
 	margin: .67em 0;
 	font-weight: bold;
 	font-style: normal;

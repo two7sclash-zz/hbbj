@@ -1,31 +1,64 @@
 ---
 layout: layouts/base.njk
 section: post
+comments: true
 ---
 
 <article>
-  <h1>{{ title }}</h1>
-  <p>
-    <small>
-      <time datetime="{{ date | machineDate }}">{{ date | readableDate }}</time> by {{ metadata.author.name }}
-    </small>
-  </p>
-
-  {{ layoutContent | safe }}
-
-  {% if tags %}
+    <h1>{{ title }}</h1>
     <p>
-    {% for tag in tags %}
-      {%- if tag != "post" -%}
-        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-        <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
+        <small>
+            <time datetime="{{ date | machineDate }}">{{ date | readableDate }}</time>
+            by {{ metadata.author.name }}
+        </small>
     </p>
-  {% endif %}
+
+    {{ layoutContent | safe }}
+
+
+    <div class="mediatec-cleanaudioplayer">
+        <ul data-theme="dark">
+            {% for song in playlist %}
+                <li data-title="{{ song[1] }}" data-artist="{{ song[2] }}" data-type="mp3"
+                    data-url="/static/2018/{{ song[0] }}" data-free="true"></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if tags %}
+        <p>
+            {% for tag in tags %}
+                {%- if tag != "post" -%}
+                    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                    <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+                {%- endif -%}
+            {% endfor %}
+        </p>
+    {% endif %}
+    {% if comments %}
+        <div id="disqus_thread"></div>
+        <script>
+
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            var disqus_config = function () {
+                this.page.url = "{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "{{ title }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://hbbj.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+                Disqus.</a></noscript>
+    {% endif %}
 
 </article>
 
 <nav>
-  <a href="{{ '/blog/' | url }}">← Blog index</a>
+    <a href="{{ '/' | url }}">← Mixes index</a>
 </nav>

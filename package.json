@@ -1,35 +1,39 @@
 {
-  "name": "eleventy-netlify-boilerplate",
+  "name": "hbbj",
   "version": "1.0.1",
-  "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
+  "description": "happy birthday baby jesus",
   "scripts": {
     "build": "npx eleventy",
     "watch": "npx eleventy --watch",
-    "debug": "DEBUG=* npx eleventy"
+    "debug": "DEBUG=* npx eleventy",
+    "serve": "browser-sync start --server '_site' --files '_site'",
+    "start": "npm run watch & npm run serve"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate"
+    "url": "https://github.com/two7sclash/hbbj"
   },
   "author": {
-    "name": "Dan Urbanowicz",
-    "email": "dan.urbanowicz@gmail.com",
+    "name": "James Fishwick",
+    "email": "fishwick@gmail.com",
     "url": "https://www.danurbanowicz.com/"
   },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate/issues"
   },
-  "homepage": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate",
+  "homepage": "https://github.com/two7sclash/hbbj",
   "devDependencies": {
     "@11ty/eleventy": "^0.5.4",
     "luxon": "^1.4.3",
     "markdown-it": "^8.4.1",
-    "markdown-it-anchor": "^4.0.0"
+    "markdown-it-anchor": "^4.0.0",
+    "browser-sync": "^2.26.3"
   },
   "dependencies": {
     "clean-css": "^4.1.11",
     "html-minifier": "^3.5.19",
-    "uglify-js": "^3.4.5"
+    "uglify-js": "^3.4.5",
+    "xspf-playlist": "^1.1.1"
   }
 }

@@ -1,9 +1,9 @@
 ---
 layout: layouts/blog.njk
-title: Blog
+title: Mixes
 tags:
   - nav
-navtitle: Blog
+navtitle: Mixes
 date: 2017-01-01
-permalink: /blog/index.html
+permalink: /
 ---
