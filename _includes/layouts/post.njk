@@ -20,7 +20,7 @@ comments: true
         <ul data-theme="dark">
             {% for song in playlist %}
                 <li data-title="{{ song[1] }}" data-artist="{{ song[2] }}" data-type="mp3"
-                    data-url="/static/2018/{{ song[0] }}" data-free="true"></li>
+                    data-url="/static/{{ year }}/{{ song[0] }}" data-free="true"></li>
             {% endfor %}
         </ul>
     </div>
